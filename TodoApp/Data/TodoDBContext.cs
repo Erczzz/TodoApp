@@ -4,10 +4,11 @@ using System.Diagnostics.Metrics;
 using System;
 using TodoApp.Models;
 using TodoApp.Data.ModelTableMapping;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TodoApp.Data
 {
-    public class TodoDBContext : DbContext
+    public class TodoDBContext : IdentityDbContext
     {
         // define the database and structure of the database will be managed over here
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -46,7 +47,7 @@ namespace TodoApp.Data
         // tables in db  and entities in application mapping
 
         public DbSet<Todo> Todos { get; set; } // plural many
-        public DbSet<User> Users { get; set; }  
+        // public DbSet<User> Users { get; set; }  
 
     }
 }
